@@ -13,7 +13,21 @@ namespace kaelus
         }
         public void StartScan(object sender, RoutedEventArgs args)
         {
-            ResultBox.Text = "This works";
+            //Check if URL is valid
+            URLBox.Text = Engine.CheckUrl(URLBox.Text);
+            //Url = SourceUrl.StringValue;
+
+            //is URL valid?
+            if (URLBox.Text.Equals("invalid"))
+            {
+                ResultBox.Text = "Invalid URL provided. Please try another URL.";
+            }
+            else
+            {
+                //Extract Emails
+                //ResultBox.StringValue = Grabber.ExtractEmails(Url);
+                ResultBox.Text = Engine.ExtractEmails(URLBox.Text);
+            }
         }
 
         public void ShowHelp(object sender, RoutedEventArgs args)

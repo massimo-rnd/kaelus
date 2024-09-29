@@ -18,10 +18,5 @@ namespace kaelus
                 .UsePlatformDetect()
                 .WithInterFont()
                 .LogToTrace();
-
-        public static void Test()
-        {
-            Console.WriteLine("Hello");
-        }
     }
 }
