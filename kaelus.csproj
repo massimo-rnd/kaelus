@@ -6,7 +6,11 @@
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    <ApplicationIcon>Assets\kaelus-icon.ico</ApplicationIcon>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Assets\kaelus-icon.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.2.0-beta2" />

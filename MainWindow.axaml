@@ -7,7 +7,7 @@
         x:Class="kaelus.MainWindow"
 		CanResize="False"
 		WindowStartupLocation="CenterScreen"
-        Title="kaelus">
+        Title="KAELUS - Ultimate Email Extractor.">
 
 	<Grid Margin="10,10,10,10">
 		<Grid.RowDefinitions>
