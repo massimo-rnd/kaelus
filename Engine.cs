@@ -30,7 +30,7 @@ namespace kaelus
 
             if (isUrl)
             {
-                
+
             }
             else
             {
@@ -96,16 +96,89 @@ namespace kaelus
                 }
             }
 
-            // Scan each link for email addresses
-            foreach (string link in links)
+            // Process each link to extract email addresses
+            foreach (var link in links)
             {
-                //Console.WriteLine(kaleidolib.lib.Formatting.dim($"Scanning {link} for email addresses..."));
-                string content = FetchPageContent(link);
-                if (!string.IsNullOrEmpty(content))
+                Console.WriteLine($"Processing link: {link}");
+
+                // Fetch the page content for each link or decode it if it's obfuscated
+                if (link.Contains("/cdn-cgi/l/email-protection#"))
                 {
-                    GetMails(content);
+                    // Extract and decode the email from the URL fragment
+                    string encodedEmail = link.Split('#').Last();
+                    string decodedEmail = DecodeCloudflareEmail(encodedEmail);
+
+                    if (!foundEmails.Contains(decodedEmail))
+                    {
+                        foundEmails.Add(decodedEmail);
+                    }
+                }
+                else
+                {
+                    // Fetch page content normally if not Cloudflare protected
+                    string linkContent = FetchPageContent(link);
+
+                    if (!string.IsNullOrEmpty(linkContent))
+                    {
+                        // Process the HTML to extract email addresses
+                        ProcessHtml(linkContent);
+                    }
                 }
             }
+        }
+
+        // Process HTML to extract both standard and obfuscated emails
+        private static void ProcessHtml(string html)
+        {
+            var doc = new HtmlDocument();
+            doc.LoadHtml(html);
+
+            // Use regular expressions to find email addresses
+            var emailRegex = new Regex(@"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}");
+            var matches = emailRegex.Matches(html);
+
+            foreach (Match match in matches)
+            {
+                string email = match.Value;
+                if (!foundEmails.Contains(email))
+                {
+                    foundEmails.Add(email);
+                }
+            }
+
+            // Look for Cloudflare obfuscated emails (data-cfemail attribute)
+            var obfuscatedEmailNodes = doc.DocumentNode.SelectNodes("//a[@data-cfemail]");
+            if (obfuscatedEmailNodes != null)
+            {
+                foreach (var node in obfuscatedEmailNodes)
+                {
+                    var encodedEmail = node.GetAttributeValue("data-cfemail", null);
+                    if (!string.IsNullOrEmpty(encodedEmail))
+                    {
+                        string decodedEmail = DecodeCloudflareEmail(encodedEmail);
+                        if (!foundEmails.Contains(decodedEmail))
+                        {
+                            foundEmails.Add(decodedEmail);
+
+                        }
+                    }
+                }
+            }
+        }
+
+        // Method to decode Cloudflare obfuscated emails
+        private static string DecodeCloudflareEmail(string encoded)
+        {
+            int r = Convert.ToInt32(encoded.Substring(0, 2), 16);
+            StringBuilder decodedEmail = new StringBuilder();
+
+            for (int i = 2; i < encoded.Length; i += 2)
+            {
+                int c = Convert.ToInt32(encoded.Substring(i, 2), 16) ^ r;
+                decodedEmail.Append((char)c);
+            }
+
+            return decodedEmail.ToString();
         }
 
         // Method to fetch the page content

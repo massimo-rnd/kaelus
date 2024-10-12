@@ -18,6 +18,8 @@
   <p>
     KAELUS is a cross-platform (Windows & macOS) Desktop application written in C#, that extracts E-Mail-Addresses from any URL you enter.<br>
     Based on <a href="https://github.com/druffko/kaelus-engine">druffko/kaelus-engine</a>
+    <br><br>
+    <b>Now with Cloudflare E-Mail Protection bypass ;)</b>
   </p>
 </div>
 
@@ -38,6 +40,8 @@ KAELUS is a cross-platform (Windows & macOS) Desktop application written in C#, 
 
 By automatically scanning the source code of each and every link with the same host domain it is able to find email addresses that are listed on said domain, without having to go through them manually.
 
+**Now with Cloudflare E-Mail Protection bypass ;)**
+
 ![UI-Screenshot](https://druffko.gg/github-images/kaelus/kaelus-ui.png)
 
 ---
@@ -48,6 +52,7 @@ By automatically scanning the source code of each and every link with the same h
 - ✅ Scans every link on a website
 - ✅ Works on Windows and macOS
 - ✅ Show results in GUI
+- ✅ NEW: Decode Cloudflare "encrypted" E-Mail-Addresses ;)
 
 ---
 
