@@ -70,7 +70,7 @@ namespace kaelus
 
         private async Task RunKaelusScanAsync(string url)
         {
-            string result = await Task.Run(() => Engine.kaelusScan(url));
+            string result = await Task.Run(() => Engine2.kaelusScan(url));
 
             ResultBox.Text = result;
         }
