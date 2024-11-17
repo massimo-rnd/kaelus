@@ -1,40 +1,19 @@
-﻿![Repo-Image](https://druffko.gg/github-images/kaelus-repo.png)
+﻿![Repo-Image](https://massimo.gg/github-images/kaelus.webp)
 
 <div align="center">
 
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/druffko/kaelus?include_prereleases)
+# KAELUS
 
-![.NET Version](https://img.shields.io/badge/.NET-8.0-brightgreen)
-![.NET Version](https://img.shields.io/badge/OS-Windows+macOS-lightgray)
-![GitHub last commit](https://img.shields.io/github/last-commit/druffko/kaelus)
+![License](https://img.shields.io/github/license/massimo-rnd/kaelus)
+![Issues](https://img.shields.io/github/issues/massimo-rnd/kaelus)
+![Forks](https://img.shields.io/github/forks/massimo-rnd/kaelus)
+![Stars](https://img.shields.io/github/stars/massimo-rnd/kaelus)
+![Last Commit](https://img.shields.io/github/last-commit/massimo-rnd/kaelus)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/massimo-rnd/kaelus?include_prereleases)
 
-  <br>
-
-  ![GitHub All Releases](https://img.shields.io/github/downloads/druffko/kaelus/total)
-  ![GitHub closed issues](https://img.shields.io/github/issues-closed/druffko/kaelus)
-  ![GitHub issues](https://img.shields.io/github/issues/druffko/kaelus)
-  
-  <h1>KAELUS</h1>
-  <p>
-    KAELUS is a cross-platform (Windows & macOS) Desktop application written in C#, that extracts E-Mail-Addresses from any URL you enter.<br>
-    Based on <a href="https://github.com/druffko/kaelus-engine">druffko/kaelus-engine</a>
-    <br><br>
-    <b>Now with Cloudflare E-Mail Protection bypass ;)</b>
-  </p>
 </div>
 
-## Table of Contents
-- [About](#about)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-
----
-
-## About
+## 🚀 Overview
 
 KAELUS is a cross-platform (Windows & macOS) Desktop application written in C#, that extracts E-Mail-Addresses from any URL you enter.
 
@@ -42,21 +21,17 @@ By automatically scanning the source code of each and every link with the same h
 
 **Now with Cloudflare E-Mail Protection bypass ;)**
 
-![UI-Screenshot](https://druffko.gg/github-images/kaelus/kaelus-ui.png)
+![UI-Screenshot](https://massimo.gg/github-images/kaelus/kaelus-ui.png)
 
----
+## 🎯 Features
 
-## Features
+- Extract email addresses from websites
+- Scans every link on a website
+- Works on Windows and macOS
+- Show results in GUI
+- NEW: Decode Cloudflare "encrypted" E-Mail-Addresses ;)
 
-- ✅ Extract email addresses from websites
-- ✅ Scans every link on a website
-- ✅ Works on Windows and macOS
-- ✅ Show results in GUI
-- ✅ NEW: Decode Cloudflare "encrypted" E-Mail-Addresses ;)
-
----
-
-## Installation
+## 🛠️ Installation
 
 ### Download the latest version
 
@@ -68,7 +43,7 @@ To start off, please head to the [releases page](https://github.com/druffko/kael
 
 Launch the application using double clicking. If the Application won't execute because it's from a "unknown developer", right-click and click "open".
 
----
+## 💻 Usage
 
 ## Usage
 
@@ -78,31 +53,40 @@ Simply enter the URL you want to scan. You can either enter the "http://" or "ht
 ### Click start
 Just click start and the applicaton will search the website for email-addresses. Results will be returned in a scrollable textview.
 
+## 🚧 Roadmap
+
+- [ ] Someting big ;)
+
+Check out the [open issues](https://github.com/massimo-rnd/kaelus/issues) for more.
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!  
+Feel free to check the [issues page](https://github.com/massimo-rnd/kaelus/issues).
+
+1. Fork the project.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a pull request.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
+
+## 📜 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 📊 Repository Metrics
+
+![Repo Size](https://img.shields.io/github/repo-size/massimo-rnd/kaelus)
+![Contributors](https://img.shields.io/github/contributors/massimo-rnd/kaelus)
+![Commit Activity](https://img.shields.io/github/commit-activity/m/massimo-rnd/kaelus)
+
 ---
 
-## Contributing
+### 📞 Contact
 
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature-name`)
-3. Commit your changes (`git commit -m 'Add some feature'`)
-4. Push to the branch (`git push origin feature-name`)
-5. Open a pull request
-
----
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## Contact
-
-- **druffko** - [@druffko](https://twitter.com/druffko) - hi@druffko.gg
-- **Project Link** - https://github.com/druffko/kaelus
-
-Feel free to reach out if you have any questions or suggestions!
-
----
+For any inquiries, feel free to reach out:
+- email: [hi@massimo.gg](mailto:hi@massimo.gg)
+- X: [massimo-rnd](https://x.com/massimo-rnd)
+- [Discord](https://discord.gg/wmC5AA6c)
