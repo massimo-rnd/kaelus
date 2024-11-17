@@ -45,8 +45,6 @@ Launch the application using double clicking. If the Application won't execute b
 
 ## 💻 Usage
 
-## Usage
-
 ### Getting email addresses
 Simply enter the URL you want to scan. You can either enter the "http://" or "https://" or just simply leave it out. FindMail will "fix" the URL.
 
