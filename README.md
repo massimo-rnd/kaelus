@@ -51,12 +51,6 @@ Simply enter the URL you want to scan. You can either enter the "http://" or "ht
 ### Click start
 Just click start and the applicaton will search the website for email-addresses. Results will be returned in a scrollable textview.
 
-## 🚧 Roadmap
-
-- [ ] Someting big ;)
-
-Check out the [open issues](https://github.com/massimo-rnd/kaelus/issues) for more.
-
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!  
