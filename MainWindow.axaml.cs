@@ -120,7 +120,7 @@ namespace kaelus
 
         public void ShowHelp(object sender, RoutedEventArgs args)
         {
-            var helpBox = MessageBoxManager.GetMessageBoxStandard("KAELUS Help", "Just enter the desired URL and click Start. KAELUS will do the rest", MsBox.Avalonia.Enums.ButtonEnum.Ok);
+            var helpBox = MessageBoxManager.GetMessageBoxStandard("KAELUS Help", "To process a single Website, just enter the URL and click start. KAELUS will do the rest.\nIf you want to Process Multiple URLs at once, create a txt file with one URL per Line, click the Multi-Scan Button and select it.", MsBox.Avalonia.Enums.ButtonEnum.Ok);
             var result = helpBox.ShowAsPopupAsync(this);
         }
 
