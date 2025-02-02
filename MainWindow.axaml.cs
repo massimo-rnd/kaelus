@@ -2,6 +2,9 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using MsBox.Avalonia;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Input;
@@ -52,6 +55,66 @@ namespace kaelus
             catch (OperationCanceledException)
             {
                 ScanProgress.IsVisible = false;
+            }
+        }
+
+        public async void MultiProcess(object sender, RoutedEventArgs args)
+        {
+            var openFileDialog = new OpenFileDialog
+            {
+                AllowMultiple = false,
+                Title = "Select URL List File"
+            };
+
+            string[]? result = await openFileDialog.ShowAsync(this);
+            if (result == null || result.Length == 0) return;
+
+            string filePath = result[0];
+            if (!File.Exists(filePath)) return;
+
+            List<string> urls = File.ReadAllLines(filePath)
+                .Where(line => !string.IsNullOrWhiteSpace(line))
+                .Select(line => line.StartsWith("http://") || line.StartsWith("https://") ? line : "https://" + line)
+                .ToList();
+
+            if (urls.Count == 0) return;
+
+            ResultBox.Text = "Starting multi-processing of URLs...\n";
+
+            var emailResults = new Dictionary<string, HashSet<string>>();
+            var tasks = new List<Task>();
+
+            foreach (var url in urls)
+            {
+                tasks.Add(Task.Run(async () =>
+                {
+                    string result = await Task.Run(() => Engine.kaelusScan(url));
+                    lock (emailResults)
+                    {
+                        if (!emailResults.ContainsKey(url))
+                        {
+                            emailResults[url] = new HashSet<string>();
+                        }
+                        foreach (var email in result.Split('\n').Where(e => !string.IsNullOrWhiteSpace(e)))
+                        {
+                            emailResults[url].Add(email);
+                        }
+                    }
+                }));
+            }
+
+            await Task.WhenAll(tasks);
+
+            // Display results grouped by domain
+            ResultBox.Text = "";
+            foreach (var entry in emailResults)
+            {
+                ResultBox.Text += $"--- {entry.Key} ---\n";
+                foreach (var email in entry.Value)
+                {
+                    ResultBox.Text += email + "\n";
+                }
+                ResultBox.Text += "\n";
             }
         }
 
