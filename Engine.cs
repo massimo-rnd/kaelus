@@ -46,6 +46,10 @@ namespace kaelus
 
         public static string kaelusScan(string url)
         {
+            
+            foundEmails.Clear();
+            finishedResults = "";
+            
             bool isUrl = IsUrl(url);
 
             if (isUrl)
@@ -134,7 +138,7 @@ namespace kaelus
             doc.LoadHtml(html);
 
             // Use regular expressions to find email addresses
-            var emailRegex = new Regex(@"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}");
+            var emailRegex = new Regex(@"[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9]+[a-zA-Z0-9.-]*\.[a-zA-Z]{2,}");
             var matches = emailRegex.Matches(html);
 
             foreach (Match match in matches)
