@@ -4,6 +4,7 @@ using MsBox.Avalonia;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Avalonia.Input;
 
 namespace kaelus
 {
@@ -15,6 +16,18 @@ namespace kaelus
         public MainWindow()
         {
             InitializeComponent();
+            
+            // Get the TextBox by Name
+            var textBox = this.FindControl<TextBox>("InputBox");
+
+            // Subscribe to the KeyDown event
+            URLBox.KeyDown += (sender, e) =>
+            {
+                if (e.Key == Key.Enter)
+                {
+                    StartScan(null, null);
+                }
+            };
         }
         public async void StartScan(object sender, RoutedEventArgs args)
         {
@@ -70,7 +83,8 @@ namespace kaelus
 
         private async Task RunKaelusScanAsync(string url)
         {
-            string result = await Task.Run(() => Engine.kaelusScan(url));
+            string result = "";
+            result = await Task.Run(() => Engine.kaelusScan(url));
 
             ResultBox.Text = result;
         }
