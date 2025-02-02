@@ -17,9 +17,7 @@ KAELUS is a cross-platform (Windows & macOS) Desktop application written in C#, 
 
 By automatically scanning the source code of each and every link with the same host domain it is able to find email addresses that are listed on said domain, without having to go through them manually.
 
-**Now with Cloudflare E-Mail Protection bypass ;)**
-
-![UI-Screenshot](https://massimo.gg/github-images/kaelus/kaelus-ui.png)
+**Now with multi-processing!**
 
 ## 🎯 Features
 
@@ -27,13 +25,14 @@ By automatically scanning the source code of each and every link with the same h
 - Scans every link on a website
 - Works on Windows and macOS
 - Show results in GUI
-- NEW: Decode Cloudflare "encrypted" E-Mail-Addresses ;)
+- Decode Cloudflare "encrypted" E-Mail-Addresses
+- NEW: Multi-Scanning! Choose a TXT file with URLs and scan them all at the same time!
 
 ## 🛠️ Installation
 
 ### Download the latest version
 
-To start off, please head to the [releases page](https://github.com/druffko/kaelus/releases) and download a pre-built package.
+To start off, please head to the [releases page](https://github.com/druffko/kaelus/releases) and download a pre-built package for your OS.
 
 *If you don't trust me for some reason, feel free to download the latest released source code and build it your self.*
 
@@ -49,6 +48,11 @@ Simply enter the URL you want to scan. You can either enter the "http://" or "ht
 ### Click start
 Just click start and the applicaton will search the website for email-addresses. Results will be returned in a scrollable textview.
 
+### Multi-Processing
+You are now able to use KAELUS' multi-scanning feature to scan may pages at once!
+
+Just create a txt-file, enter the URLs and select it in KAELUS.
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!  
@@ -60,7 +64,6 @@ Feel free to check the [issues page](https://github.com/massimo-rnd/kaelus/issue
 4. Push to the branch (`git push origin feature/AmazingFeature`).
 5. Open a pull request.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for more details.
 
 ## 📜 License
 
