@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <RuntimeIdentifiers>osx-x64</RuntimeIdentifiers>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
@@ -7,11 +8,28 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     <ApplicationIcon>Assets\kaelus-icon.ico</ApplicationIcon>
+    <Version>2.0.0</Version>
+    <PackageIcon>kaelus-icon.ico</PackageIcon>
+    <AssemblyVersion>2.0</AssemblyVersion>
+    <FileVersion>2.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Assets\kaelus-icon.ico" />
   </ItemGroup>
 
+  <PropertyGroup>
+    <PublishAot>true</PublishAot>
+    <!-- Recommended Avalonia trimming settings for Native AOT -->
+    <BuiltInComInteropSupport>false</BuiltInComInteropSupport>
+    <TrimMode>link</TrimMode>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Preserve Avalonia types for reflection -->
+    <TrimmerRootAssembly Include="Avalonia.Themes.Fluent" />
+    <TrimmerRootAssembly Include="Avalonia.Themes.Default" />
+  </ItemGroup>
+  
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="11.2.0-rc1" />
     <PackageReference Include="Avalonia.Desktop" Version="11.2.0-rc1" />
