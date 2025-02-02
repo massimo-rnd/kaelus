@@ -1,6 +1,4 @@
-﻿![Repo-Image](https://massimo.gg/github-images/kaelus.webp)
-
-<div align="center">
+﻿<div align="center">
 
 # KAELUS
 
